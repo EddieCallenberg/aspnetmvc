@@ -1,0 +1,48 @@
+.slider-section {
+    display: none;
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 75px;
+
+    @media(min-width: 1400px) {
+        display: block;
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            padding-left: 30px;
+            padding-bottom: 50px;
+            margin: auto;
+            color: white;
+
+            span {
+                color: black;
+            }
+        }
+
+        .img-wrapper {
+            margin: auto;
+            width: fit-content;
+
+            .absolute {
+                right: 124px;
+                border-left: 3px solid $theme;
+            }
+        }
+    }
+
+    .dark-side {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: black;
+        width: 50%;
+        height: 100%;
+        z-index: -10;
+        border-right: 3px solid $theme;
+    }
+}

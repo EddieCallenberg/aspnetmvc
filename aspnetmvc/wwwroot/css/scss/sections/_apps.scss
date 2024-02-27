@@ -1,0 +1,54 @@
+.apps {
+    background-color: $theme-opacity;
+
+    .container {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        #apps-image {
+            display: none;
+
+            @media(min-width: 992px) {
+                display: block;
+            }
+        }
+
+        .content-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            max-width: 416px;
+
+            h4 {
+                font-size: 64px;
+            }
+
+            .app-download {
+
+                .download-wrapper {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .download-text {
+                        .store-name {
+                            margin-bottom: 5px;
+                        }
+
+                        .review-title {
+                            font-weight: 700;
+                            font-size: x-large;
+                            color: black;
+                        }
+
+                        .stars {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

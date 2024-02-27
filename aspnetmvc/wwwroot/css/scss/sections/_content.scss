@@ -1,0 +1,32 @@
+.content-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        #content-img {
+            display: none;
+
+            @media(min-width: 992px) {
+                display: block;
+            }
+        }
+
+        .content-right {
+            h4 {
+                margin-bottom: 2rem;
+            }
+
+            .bullet-point-item {
+                margin-bottom: 1rem;
+            }
+
+            .bullet-point-item:nth-child(6) {
+                margin-bottom: 3rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,81 @@
+.features {
+    background-color: $gray-100;
+    padding-top: 90px;
+    padding-bottom: 90px;
+
+    .container {
+        text-align: center;
+
+        .box {
+            padding: 20px;
+            flex-shrink: 1;
+        }
+
+        .box:hover {
+            background-color: white;
+            border-radius: .5rem;
+            box-shadow: 0px 2px 6.4px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 12px -1px rgba(19, 16, 34, 0.06);
+        }
+
+        .box-wrapper {
+            margin-top: 100px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 0px;
+            margin-bottom: 50px;
+
+            @media (min-width: 768px) {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+        }
+
+        .box:nth-child(1) {
+            border-bottom: 1px solid rgb(226, 226, 226);
+            border-right: none;
+
+            @media (min-width: 768px) {
+                border-right: 1px solid rgb(226, 226, 226);
+            }
+        }
+
+        .box:nth-child(2) {
+            border-bottom: 1px solid rgb(226, 226, 226);
+        }
+
+        .box:nth-child(3) {
+            border-bottom: 1px solid rgb(226, 226, 226);
+
+            @media (min-width: 768px) {
+                border-left: 1px solid rgb(226, 226, 226);
+            }
+        }
+
+        .box:nth-child(4) {
+            border-bottom: 1px solid rgb(226, 226, 226);
+
+            @media (min-width: 768px) {
+                border-right: 1px solid rgb(226, 226, 226);
+                border-bottom: none;
+            }
+        }
+
+        .box:nth-child(5) {
+            border-bottom: 1px solid rgb(226, 226, 226);
+
+            @media (min-width: 768px) {
+                border-bottom: none;
+            }
+        }
+
+        .box:nth-child(6) {
+            border-bottom: 1px solid rgb(226, 226, 226);
+
+            @media (min-width: 768px) {
+                border-left: 1px solid rgb(226, 226, 226);
+                border-bottom: none;
+            }
+        }
+    }
+}
