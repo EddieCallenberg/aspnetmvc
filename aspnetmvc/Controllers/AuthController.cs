@@ -22,4 +22,24 @@ public class AuthController : Controller
         
         return RedirectToAction("Index", "Home");
     }
+
+    [Route("/signin")]
+    [HttpGet]
+    public IActionResult Signin()
+    {
+        var viewModel = new SignInViewModel();
+        return View(viewModel);
+    }
+
+    [Route("/signin")]
+    [HttpPost]
+    public IActionResult Signin(SignInViewModel viewModel)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(viewModel);
+        }
+        viewModel.ErrorMessage = "Incorrect email or password";
+        return View(viewModel);
+    }
 }
