@@ -1,4 +1,4 @@
-#signup {
+#signin {
     height: 100%;
 
     .container {
@@ -12,21 +12,41 @@
         }
 
         @include xl {
-            width: 40%;
+            width: 30%;
         }
 
         form {
             padding: 1rem;
 
+            #error-alerter {
+                color: $danger;
+            }
+
             .content {
                 display: grid;
                 gap: 1rem 2rem;
                 grid-template-columns: 1fr;
-                grid-template-areas: "firstname" "lastname" "email" "password" "confirm" "terms" "button";
+                grid-template-areas: "email" "password" "remember" "button" "forgot";
 
-                @include md {
-                    grid-template-columns: 1fr 1fr;
-                    grid-template-areas: "firstname lastname" "email email" "password password" "confirm confirm" "terms terms" "button button";
+                #form-email {
+                    grid-area: email;
+                }
+
+                #form-password {
+                    grid-area: password;
+                }
+
+                #form-remember {
+                    grid-area: remember;
+                }
+
+                #form-button {
+                    grid-area: button;
+                }
+
+                #form-forgot-password {
+                    grid-area: forgot;
+                    text-align: center;
                 }
 
                 .input-group {
@@ -53,41 +73,6 @@
                         border-radius: 0.5rem;
                         background-color: $theme-opacity;
                     }
-                }
-
-                .checkbox-group {
-                    span {
-                        color: $danger;
-                    }
-                }
-
-                #form-firstname {
-                    grid-area: firstname;
-                }
-
-                #form-lastname {
-                    grid-area: lastname;
-                }
-
-                #form-email {
-                    grid-area: email;
-                }
-
-                #form-password {
-                    grid-area: password;
-                }
-
-                #form-confirm {
-                    grid-area: confirm;
-                }
-
-                #form-terms {
-                    grid-area: terms;
-                }
-
-                #form-button {
-                    grid-area: button;
-                    width: fit-space !important;
                 }
             }
         }
