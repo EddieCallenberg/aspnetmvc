@@ -1,0 +1,95 @@
+#signup {
+    height: 100%;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        @include lg {
+            width: 60%;
+        }
+
+        @include xl {
+            width: 40%;
+        }
+
+        form {
+            padding: 1rem;
+
+            .content {
+                display: grid;
+                gap: 1rem 2rem;
+                grid-template-columns: 1fr;
+                grid-template-areas: "firstname" "lastname" "email" "password" "confirm" "terms" "button";
+
+                @include md {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "firstname lastname" "email email" "password password" "confirm confirm" "terms terms" "button button";
+                }
+
+                .input-group {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "label span" "input input";
+
+                    label {
+                        grid-area: label;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    span {
+                        grid-area: span;
+                        text-align: right;
+                        color: $danger;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    input {
+                        grid-area: input;
+                        padding: 1rem;
+                        border: 1px solid $gray-600;
+                        border-radius: 0.5rem;
+                        background-color: $theme-opacity;
+                    }
+                }
+
+                .checkbox-group {
+                    span {
+                        color: $danger;
+                    }
+                }
+
+                #form-firstname {
+                    grid-area: firstname;
+                }
+
+                #form-lastname {
+                    grid-area: lastname;
+                }
+
+                #form-email {
+                    grid-area: email;
+                }
+
+                #form-password {
+                    grid-area: password;
+                }
+
+                #form-confirm {
+                    grid-area: confirm;
+                }
+
+                #form-terms {
+                    grid-area: terms;
+                }
+
+                #form-button {
+                    grid-area: button;
+                    width: fit-space !important;
+                }
+            }
+        }
+    }
+}
