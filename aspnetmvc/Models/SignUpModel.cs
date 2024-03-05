@@ -4,12 +4,14 @@ namespace aspnetmvc.Models;
 
 public class SignUpModel
 {
+    [DataType(DataType.Text)]
     [Display(Name = "First name", Prompt = "Enter your first name", Order = 0)]
-    [Required(ErrorMessage = "Invalid first name")]
+    [Required(ErrorMessage = "First name required.")]
     public string FirstName { get; set; } = null!;
 
+    [DataType(DataType.Text)]
     [Display(Name = "Last name", Prompt = "Enter your last name", Order = 1)]
-    [Required(ErrorMessage = "Invalid last name")]
+    [Required(ErrorMessage = "Last name required.")]
     public string LastName { get; set; } = null!;
 
     [Display(Name = "Email address", Prompt = "Enter your email address", Order = 2)]
@@ -28,7 +30,7 @@ public class SignUpModel
     [Display(Name = " Confirm Password", Prompt = "Confirm your password", Order = 4)]
     [DataType(DataType.Password)]
     [Required(ErrorMessage = "You must confirm password")]
-    [Compare(nameof(Password), ErrorMessage = "Passwords does not match")]
+    [Compare(nameof(Password), ErrorMessage = "Password does not match.")]
     public string ConfirmPassword { get; set; } = null!;
 
     [Display(Name = "I agree to the Terms & Conditions.", Order =5)]
