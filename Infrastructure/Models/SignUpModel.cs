@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Infrastructure.Helpers;
+using System.ComponentModel.DataAnnotations;
 
-namespace aspnetmvc.Models;
+namespace Infrastructure.Models;
 
 public class SignUpModel
 {
@@ -33,12 +34,7 @@ public class SignUpModel
     [Compare(nameof(Password), ErrorMessage = "Password does not match.")]
     public string ConfirmPassword { get; set; } = null!;
 
-    [Display(Name = "I agree to the Terms & Conditions.", Order =5)]
-    [CheckboxAttribute(ErrorMessage= "You must accept the terms and conditions in order to proceed.")]
+    [Display(Name = "I agree to the Terms & Conditions.", Order = 5)]
+    [CheckBoxRequired(ErrorMessage = "You msut accept the terms and conditions to proceed.")]
     public bool TermsAndConditions { get; set; } = false;
-}
-
-public class CheckboxAttribute : ValidationAttribute 
-{
-    public override bool IsValid(object? value) => value is bool b && b;
 }

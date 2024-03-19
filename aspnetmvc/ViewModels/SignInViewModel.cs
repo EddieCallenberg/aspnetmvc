@@ -1,4 +1,4 @@
-﻿using aspnetmvc.Models;
+﻿using Infrastructure.Models;
 
 namespace aspnetmvc.ViewModels
 {
@@ -8,6 +8,6 @@ namespace aspnetmvc.ViewModels
 
         public SignInModel Form { get; set; } = new SignInModel();
 
-        public string ErrorMessage { get; set; } = null!;
+        public string? ErrorMessage { get; set; } = null!;
     }
 }

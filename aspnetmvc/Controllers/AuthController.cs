@@ -1,10 +1,13 @@
 ﻿using aspnetmvc.ViewModels;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace aspnetmvc.Controllers;
 
-public class AuthController : Controller
+public class AuthController(UserService userService) : Controller
 {
+    private readonly UserService _userService = userService;
+
     [Route("/signup")]
     [HttpGet]
     public IActionResult Signup()
@@ -15,12 +18,16 @@ public class AuthController : Controller
 
     [Route("/signup")]
     [HttpPost]
-    public IActionResult Signup(SignUpViewModel viewModel)
+    public async Task<IActionResult> Signup(SignUpViewModel viewModel)
     {
-        if (!ModelState.IsValid)
+        if (ModelState.IsValid)
+        {
+            var result = await _userService.CreateUserAsync(viewModel.SignUpForm);
+            if (result.StatusCode == Infrastructure.Models.StatusCode.OK)
+                return RedirectToAction("SignIn", "Auth");
+        }
+
         return View(viewModel);
-        
-        return RedirectToAction("Index", "Home");
     }
 
     [Route("/signin")]
@@ -33,11 +40,13 @@ public class AuthController : Controller
 
     [Route("/signin")]
     [HttpPost]
-    public IActionResult Signin(SignInViewModel viewModel)
+    public async Task<IActionResult> Signin(SignInViewModel viewModel)
     {
-        if (!ModelState.IsValid)
+        if (ModelState.IsValid)
         {
-            return View(viewModel);
+            var result = await _userService.SignInUserAsync(viewModel.Form);
+            if (result.StatusCode == Infrastructure.Models.StatusCode.OK)           
+            return RedirectToAction("Details", "Account");
         }
         viewModel.ErrorMessage = "Incorrect email or password";
         return View(viewModel);

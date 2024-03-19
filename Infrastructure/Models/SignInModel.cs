@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace aspnetmvc.Models;
+namespace Infrastructure.Models;
 
 public class SignInModel
 {

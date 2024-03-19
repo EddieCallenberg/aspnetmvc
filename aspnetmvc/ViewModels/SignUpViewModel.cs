@@ -1,4 +1,4 @@
-﻿using aspnetmvc.Models;
+﻿using Infrastructure.Models;
 
 namespace aspnetmvc.ViewModels;
 
