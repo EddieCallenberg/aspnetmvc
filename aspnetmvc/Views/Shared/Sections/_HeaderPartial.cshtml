@@ -1,11 +1,21 @@
-﻿<header>
+﻿@inject SignInManager<UserEntity> _signInManager
+
+
+<header>
     <div class="container">
         <a asp-controller="Home" asp-action="Index"><img src="~/images/solid.svg" alt=""></a>
 
         <div id="menu">
             <nav>
                 <a class="menu-link" href="#showcase">Overview</a>
-                <a class="menu-link" href="#features">Features</a>
+                @if (_signInManager.IsSignedIn(User))
+                {
+                    <a asp-controller="Courses" asp-action="MyCourses" class="menu-link">My Courses</a>
+                }
+                else
+                {
+                    <a class="menu-link" href="#features">Features</a>
+                }               
                 <a class="menu-link" href="">Contact</a>
             </nav>
         </div>
@@ -20,9 +30,18 @@
                 <a class="menu-link" href="#features" onclick="showmenu()">Features</a><br>
                 <a class="menu-link" href="">Contact</a>
             </nav>
+            
             <div class="account-buttons-mobile">
-                <a asp-controller="Auth" asp-action="SignIn" class="btn-gray"><i class="fa-light fa-arrow-right-to-bracket"></i><span>Sign In</span></a>
-                <a asp-controller="Auth" asp-action="SignUp" class="btn-theme"><i class="fa-light fa-user"></i><span>Sign Up</span></a>
+                @if (_signInManager.IsSignedIn(User))
+                {
+                    <a asp-controller="Account" asp-action="Details" class="btn-theme"><i class="fa-light fa-user"></i><span>Account</span></a>
+                    <a asp-controller="Auth" asp-action="SignOut" class="btn-gray"><i class="fa-light fa-arrow-right-from-bracket"></i><span>Sign out</span></a>
+                }
+                else
+                {
+                    <a asp-controller="Auth" asp-action="SignIn" class="btn-gray"><i class="fa-light fa-arrow-right-to-bracket"></i><span>Sign In</span></a>
+                    <a asp-controller="Auth" asp-action="Signup" class="btn-theme"><i class="fa-light fa-user"></i><span>Sign Up</span></a>
+                }
             </div>
         </div>
 
@@ -36,9 +55,17 @@
         </div>
 
         <div class="account-buttons">
-            <a asp-controller="Auth" asp-action="SignIn" class="btn-gray"><i class="fa-light fa-arrow-right-to-bracket"></i><span>Sign In</span></a>
-            <a asp-controller="Auth" asp-action="Signup" class="btn-theme"><i class="fa-light fa-user"></i><span>Sign Up</span></a>
+            @if (_signInManager.IsSignedIn(User))
+            {
+                <a asp-controller="Account" asp-action="Details" class="btn-theme"><i class="fa-light fa-user"></i><span>Account</span></a>
+                <a asp-controller="Auth" asp-action="SignOut" class="btn-gray"><i class="fa-light fa-arrow-right-from-bracket"></i><span>Sign out</span></a>
+            }
+            else
+            {
+                <a asp-controller="Auth" asp-action="SignIn" class="btn-gray"><i class="fa-light fa-arrow-right-to-bracket"></i><span>Sign In</span></a>
+                <a asp-controller="Auth" asp-action="Signup" class="btn-theme"><i class="fa-light fa-user"></i><span>Sign Up</span></a>
+            }           
         </div>
-        <button class="btn-social" id="btn-mobile" onclick="showmenu()"><i id="mobile-menu-icon" class="fa-regular fa-bars"></i></i></button>
+        <button class="btn-social" id="btn-mobile" onclick="showmenu()"><i id="mobile-menu-icon" class="fa-regular fa-bars"></i></button>
     </div>
 </header>

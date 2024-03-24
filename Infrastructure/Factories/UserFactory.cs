@@ -32,12 +32,9 @@ public class UserFactory
 
             return new UserEntity
             {
-                Id = Guid.NewGuid().ToString(),
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Email = model.EmailAddress,
-                Password = password,
-                SecurityKey = securityKey,
                 Created = date,
                 Modified = date
             };
