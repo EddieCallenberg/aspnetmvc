@@ -945,13 +945,24 @@ footer .container .social-media {
 
 #account-details {
   display: grid;
-  grid-template-columns: 2fr 5fr;
+  grid-template-columns: 1fr;
   gap: 150px;
   margin-bottom: 70px;
 }
+@media (min-width: 768px) {
+  #account-details {
+    grid-template-columns: 2fr 5fr;
+  }
+}
 #account-details aside {
-  border-right: 1px solid #E2E5F1;
-  padding-right: 20px;
+  border-right: none;
+  padding-right: 0px;
+}
+@media (min-width: 768px) {
+  #account-details aside {
+    border-right: 1px solid #E2E5F1;
+    padding-right: 20px;
+  }
 }
 #account-details aside .profile-info {
   margin: 20px;
@@ -994,8 +1005,14 @@ footer .container .social-media {
 #account-details .details .basic-info .content {
   display: grid;
   gap: 1rem 2rem;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
+  grid-template-columns: 1fr;
+  grid-template-areas: "firstname" "lastname" "email" "phone" "bio" "buttons";
+}
+@media (min-width: 576px) {
+  #account-details .details .basic-info .content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
+  }
 }
 #account-details .details .basic-info .content .input-group {
   display: grid;
@@ -1065,8 +1082,14 @@ footer .container .social-media {
 #account-details .address-info form .content {
   display: grid;
   gap: 1rem 2rem;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "addressline_1 addressline_1" "addressline_2 addressline_2" "postalcode city" "buttons buttons";
+  grid-template-columns: 1fr;
+  grid-template-areas: "addressline_1" "addressline_2" "postalcode" "city" "buttons";
+}
+@media (min-width: 576px) {
+  #account-details .address-info form .content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "addressline_1 addressline_1" "addressline_2 addressline_2" "postalcode city" "buttons buttons";
+  }
 }
 #account-details .address-info form .content .input-group {
   display: grid;
@@ -1111,4 +1134,116 @@ footer .container .social-media {
   margin: 20px 0;
   display: flex;
   gap: 20px;
+}
+
+#courses-section {
+  margin-top: 50px;
+}
+#courses-section .container {
+  margin-top: 50px;
+}
+#courses-section .container .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: flex-start;
+}
+#courses-section .container .breadcrumb .first-link {
+  color: #9397AD;
+}
+#courses-section .container .courses-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  #courses-section .container .courses-top {
+    flex-direction: row;
+  }
+}
+#courses-section .container .courses-top .search-form {
+  display: flex;
+  gap: 24px;
+  justify-content: flex-end;
+  height: 35px;
+}
+#courses-section .container .courses-top .search-form .search-dropdown {
+  width: 240px;
+  border-radius: 0.5rem;
+}
+#courses-section .container .courses-top .search-form .searchbar {
+  width: 300px;
+}
+#courses-section .container #courses-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 576px) {
+  #courses-section .container #courses-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 992px) {
+  #courses-section .container #courses-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+#courses-section .container #courses-wrapper .single-course-wrapper {
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6.4px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 12px -1px rgba(19, 16, 34, 0.06);
+}
+#courses-section .container #courses-wrapper .single-course-wrapper .course-img {
+  border-radius: 8px 8px 0px 0px;
+  max-width: 100%;
+  height: auto;
+}
+#courses-section .container #courses-wrapper .single-course-wrapper .course-title {
+  margin: 24px 24px 8px 24px;
+}
+#courses-section .container #courses-wrapper .single-course-wrapper .courses-author {
+  margin-left: 24px;
+}
+#courses-section .container #courses-wrapper .single-course-wrapper .courses-prices {
+  margin-left: 24px;
+}
+#courses-section .container #courses-wrapper .single-course-wrapper hr {
+  margin: 0px 24px 0px 24px;
+}
+#courses-section .container #courses-wrapper .single-course-wrapper .courses-time-and-rating {
+  margin: 24px;
+  gap: 24px;
+  display: flex;
+}
+#courses-section .container #courses-wrapper .single-course-wrapper .courses-time-and-rating i {
+  margin-right: 8px;
+}
+#courses-section .container #courses-wrapper .single-course-wrapper .best-seller {
+  display: flex;
+  background-color: #22C55E;
+  height: 18px;
+  align-items: center;
+  top: 16px;
+  left: 16px;
+}
+#courses-section .container #courses-wrapper .single-course-wrapper .best-seller p {
+  margin-top: 15px;
+  font-size: 14px;
+  color: white;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+#courses-section .container #courses-wrapper .single-course-wrapper .courses-save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  top: 16px;
+  right: 16px;
+  height: 36px;
+  width: 36px;
+  border-radius: 2rem;
+  color: #0B0F19;
 }

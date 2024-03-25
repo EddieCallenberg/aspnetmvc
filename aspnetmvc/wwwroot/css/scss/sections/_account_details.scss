@@ -1,12 +1,21 @@
 #account-details {
     display: grid;
-    grid-template-columns: 2fr 5fr;
+    grid-template-columns: 1fr;
     gap: 150px;
     margin-bottom: 70px;
 
+    @media(min-width: 768px) {
+        grid-template-columns: 2fr 5fr;
+    }
+
     aside {
-        border-right: 1px solid $gray-300;
-        padding-right: 20px;
+        border-right: none;
+        padding-right: 0px;
+
+        @media(min-width: 768px) {
+            border-right: 1px solid $gray-300;
+            padding-right: 20px;
+        }
 
         .profile-info {
             margin: 20px;
@@ -56,8 +65,14 @@
             .content {
                 display: grid;
                 gap: 1rem 2rem;
-                grid-template-columns: 1fr 1fr;
-                grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
+                grid-template-columns: 1fr;
+                grid-template-areas: "firstname" "lastname" "email" "phone" "bio" "buttons";
+
+                @media(min-width: 576px) {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
+                }
+
 
                 .input-group {
                     display: grid;
@@ -143,8 +158,13 @@
             .content {
                 display: grid;
                 gap: 1rem 2rem;
-                grid-template-columns: 1fr 1fr;
-                grid-template-areas: "addressline_1 addressline_1" "addressline_2 addressline_2" "postalcode city" "buttons buttons";
+                grid-template-columns: 1fr;
+                grid-template-areas: "addressline_1" "addressline_2" "postalcode" "city" "buttons";
+
+                @media(min-width: 576px) {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "addressline_1 addressline_1" "addressline_2 addressline_2" "postalcode city" "buttons buttons";
+                }
 
                 .input-group {
                     display: grid;

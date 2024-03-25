@@ -35,7 +35,7 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
             ViewData["ErrorMessage"] = "Unable to save data";
         }
 
-        return RedirectToAction("Details", "Account", viewModel);9
+        return RedirectToAction("Details", "Account", viewModel);
     }
 
     [HttpPost]

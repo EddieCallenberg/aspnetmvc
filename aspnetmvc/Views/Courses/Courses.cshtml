@@ -1,0 +1,75 @@
+﻿@{
+
+}
+
+<section id="courses-section">
+    <div class="container">
+        <div class="breadcrumb">
+            <a asp-action="Index" asp-controller="Home" class="first-link"><i class="fa-light fa-house"></i> Home</a>
+            <i class="fa-light fa-chevrons-right"></i>
+            <a asp-action="Courses" asp-controller="Courses">Courses</a>
+        </div>
+        <div class="courses-top">
+            <h1>Courses</h1>
+            <form class="search-form">
+                <select class="search-dropdown" name="categories">
+                    <option value=""></option>
+                    <option value="Programming">Programming</option>
+                    <option value="Tech">Tech</option>
+                </select>
+                <input class="searchbar" type="search" />
+            </form>
+        </div>
+        <div id="courses-wrapper">
+            <div class="single-course-wrapper">
+                <img src="~/images/course-one-img.svg" class="course-img"/>
+                <h5 class="course-title">Fullstack Web Developer Course from Scratch</h5>
+                <p class="courses-author">By Robert Fox</p>
+                <div class="courses-prices">
+                    <p class="new-price">$12.50</p>
+                    <p class="old-price"></p>
+                </div>
+                <hr />
+                <div class="courses-time-and-rating">
+                    <p><i class="fa-light fa-clock"></i> 220 hours</p>
+                    <p><i class="fa-light fa-thumbs-up"></i> 94% (4.2k)</p>
+                </div>
+                <a class="courses-save absolute" asp-action="SaveCourse" asp-controller="Courses"><i class="fa-light fa-bookmark"></i></a>
+            </div>
+            <div class="single-course-wrapper">
+                <img src="~/images/course-one-img.svg" class="course-img" />
+                <h5 class="course-title">Fullstack Web Developer Course from Scratch</h5>
+                <p class="courses-author">By Robert Fox</p>
+                <div class="courses-prices">
+                    <p class="new-price">$12.50</p>
+                    <p class="old-price"></p>
+                </div>
+                <hr />
+                <div class="courses-time-and-rating">
+                    <p><i class="fa-light fa-clock"></i> 220 hours</p>
+                    <p><i class="fa-light fa-thumbs-up"></i> 94% (4.2k)</p>
+                </div>
+                <div class="absolute best-seller">
+                    <p>Best Seller</p>
+                </div>
+                <a class="courses-save absolute" asp-action="SaveCourse" asp-controller="Courses"><i class="fa-light fa-bookmark"></i></a>
+            </div>
+            <div class="single-course-wrapper">
+                <img src="~/images/course-one-img.svg" class="course-img" />
+                <h5 class="course-title">Fullstack Web Developer Course from Scratch</h5>
+                <p class="courses-author">By Robert Fox</p>
+                <div class="courses-prices">
+                    <p class="new-price">$12.50</p>
+                    <p class="old-price"></p>
+                </div>
+                <hr />
+                <div class="courses-time-and-rating">
+                    <p><i class="fa-light fa-clock"></i> 220 hours</p>
+                    <p><i class="fa-light fa-thumbs-up"></i> 94% (4.2k)</p>
+                </div>
+                <a class="courses-save absolute" asp-action="SaveCourse" asp-controller="Courses"><i class="fa-light fa-bookmark"></i></a>
+            </div>
+        </div>
+    </div>
+
+</section>
