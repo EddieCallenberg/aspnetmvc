@@ -1154,46 +1154,84 @@ footer .container .social-media {
 #courses-section .container .courses-top {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  height: fit-content;
 }
 @media (min-width: 992px) {
   #courses-section .container .courses-top {
     flex-direction: row;
+    justify-content: space-between;
   }
 }
 #courses-section .container .courses-top .search-form {
   display: flex;
+  flex-direction: column;
   gap: 24px;
-  justify-content: flex-end;
   height: 35px;
+  margin-left: 20%;
+}
+@media (min-width: 576px) {
+  #courses-section .container .courses-top .search-form {
+    margin-left: 0px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+@media (min-width: 768px) {
+  #courses-section .container .courses-top .search-form {
+    justify-content: center;
+  }
+}
+@media (min-width: 992px) {
+  #courses-section .container .courses-top .search-form {
+    justify-content: flex-end;
+  }
 }
 #courses-section .container .courses-top .search-form .search-dropdown {
-  width: 240px;
+  width: 80%;
   border-radius: 0.5rem;
 }
+@media (min-width: 576px) {
+  #courses-section .container .courses-top .search-form .search-dropdown {
+    width: 240px;
+  }
+}
 #courses-section .container .courses-top .search-form .searchbar {
-  width: 300px;
+  width: 80%;
+  height: 35px;
+}
+@media (min-width: 576px) {
+  #courses-section .container .courses-top .search-form .searchbar {
+    width: 300px;
+  }
 }
 #courses-section .container #courses-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
   gap: 24px;
+  padding-top: 60px;
 }
 @media (min-width: 576px) {
   #courses-section .container #courses-wrapper {
+    display: grid;
     grid-template-columns: 1fr 1fr;
   }
 }
 @media (min-width: 992px) {
   #courses-section .container #courses-wrapper {
     grid-template-columns: 1fr 1fr 1fr;
+    padding-top: 40px;
   }
 }
 #courses-section .container #courses-wrapper .single-course-wrapper {
   position: relative;
   border-radius: 8px;
   box-shadow: 0px 2px 6.4px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 12px -1px rgba(19, 16, 34, 0.06);
+  max-width: 416px;
 }
 #courses-section .container #courses-wrapper .single-course-wrapper .course-img {
   border-radius: 8px 8px 0px 0px;

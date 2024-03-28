@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aspnetmvc", "aspnetmvc\aspnetmvc.csproj", "{4F495E59-5417-49C7-9452-65086BB6AD7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{E808C9D7-A128-4B20-89EF-50F0BC178192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{E808C9D7-A128-4B20-89EF-50F0BC178192}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{3FCE6E5A-D688-40A3-8610-FF2E69888FF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E808C9D7-A128-4B20-89EF-50F0BC178192}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E808C9D7-A128-4B20-89EF-50F0BC178192}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E808C9D7-A128-4B20-89EF-50F0BC178192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FCE6E5A-D688-40A3-8610-FF2E69888FF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FCE6E5A-D688-40A3-8610-FF2E69888FF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FCE6E5A-D688-40A3-8610-FF2E69888FF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FCE6E5A-D688-40A3-8610-FF2E69888FF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
