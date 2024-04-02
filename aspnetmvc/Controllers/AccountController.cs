@@ -2,6 +2,7 @@
 using Infrastructure.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration.UserSecrets;
 
 namespace aspnetmvc.Controllers;
 
@@ -16,13 +17,11 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
     {
         if (!_signInManager.IsSignedIn(User))
             return RedirectToAction("signin", "Auth");
-
-        var userEntity = await _userManager.GetUserAsync(User);
-
-        var viewModel = new AccountDetailsViewModel()
+        var viewModel = new AccountDetailsViewModel
         {
-            User = userEntity!
+            BasicInfoForm = await PopulateBasicInfoFormAsync()
         };
+
         return View(viewModel);
     }
 
@@ -35,5 +34,24 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
         }
 
         return View("Details", viewModel);
+    }
+
+
+    private async Task<BasicInfoFormViewModel> PopulateBasicInfoFormAsync()
+    {
+        var user = await _userManager.GetUserAsync(User);
+        if (user != null)
+        {
+            return new BasicInfoFormViewModel
+            {
+                UserId = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email!,
+                PhoneNumber = user.PhoneNumber,
+                Biography = user.Biography,
+            };
+        }
+        return null!;
     }
 }

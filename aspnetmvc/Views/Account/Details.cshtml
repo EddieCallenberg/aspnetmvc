@@ -8,8 +8,8 @@
         <aside>
             <div class="profile-info">
                 <img src="~/images/profile-picture-image.svg" alt="s profile picture" />
-                <h5>test</h5>
-                <p>Testl</p>
+                <h5>@Model.BasicInfoForm.FirstName @Model.BasicInfoForm.LastName</h5>
+                <p>@Model.BasicInfoForm.Email</p>
             </div>
             <nav>
                 <a class="btn-theme-s" asp-controller="Account" asp-action="Details">Account Details</a>

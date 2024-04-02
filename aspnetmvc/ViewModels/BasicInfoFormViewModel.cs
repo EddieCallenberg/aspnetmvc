@@ -4,6 +4,7 @@ namespace aspnetmvc.ViewModels
 {
     public class BasicInfoFormViewModel
     {
+        public string UserId { get; set; } = null!;
         [Required(ErrorMessage = "A valid first name is required")]
         [DataType(DataType.Text)]
         [Display(Name = "First name", Prompt = "Enter your first name")]
