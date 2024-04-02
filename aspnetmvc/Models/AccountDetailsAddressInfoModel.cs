@@ -8,7 +8,7 @@ public class AccountDetailsAddressInfoModel
     [Required(ErrorMessage = "Address line is required.")]
     public string AdressLine_1 { get; set; } = null!;
 
-    [Display(Name = "Last name", Prompt = "Enter your address line 2", Order = 1)]
+    [Display(Name = "Address line 2", Prompt = "Enter your address line 2", Order = 1)]
     public string? AdressLine_2 { get; set; }
 
     [Display(Name = "Postal code", Prompt = "Enter your postal code", Order = 2)]

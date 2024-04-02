@@ -10,6 +10,7 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
     private readonly UserManager<UserEntity> _userManager = userManager;
 
+    [HttpGet]
     [Route("/account")]
     public async Task<IActionResult> Details()
     {
@@ -26,21 +27,13 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
     }
 
     [HttpPost]
-    public async Task<IActionResult> SaveData(AccountDetailsViewModel viewModel)
+    public IActionResult SaveBasicInfo(AccountDetailsViewModel viewModel)
     {
-        var result = await _userManager.UpdateAsync(viewModel.User);
-        if (!result.Succeeded) 
+        if (TryValidateModel(viewModel.BasicInfoForm))
         {
-            ModelState.AddModelError("SomethingWentWrong", "Somethign went wrong when saving the data");
-            ViewData["ErrorMessage"] = "Unable to save data";
+            return RedirectToAction("Index", "Home");
         }
 
-        return RedirectToAction("Details", "Account", viewModel);
-    }
-
-    [HttpPost]
-    public IActionResult AdressInfo(AccountDetailsViewModel viewModel)
-    {
-        return View(viewModel);
+        return View("Details", viewModel);
     }
 }
