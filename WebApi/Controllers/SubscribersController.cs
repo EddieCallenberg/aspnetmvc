@@ -31,10 +31,10 @@ public class SubscribersController(ApiContext context) : ControllerBase
 
                     return Created("", null);
                 }
-                catch 
+                catch
                 {
                     return Problem("Unable to create subscription");
-                }              
+                }
             }
             return Conflict("This email address is already subscriebd to the newsletter");
         }
@@ -43,4 +43,67 @@ public class SubscribersController(ApiContext context) : ControllerBase
 
     #endregion
 
+    #region READ
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var subscribers = await _context.Subscribers.ToListAsync();
+        if (subscribers.Count != 0)
+        {
+            return Ok(subscribers);
+        }
+
+        return NotFound();
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetOne(int id)
+    {
+        var subscriber = await _context.Subscribers.FirstOrDefaultAsync(x => x.Id == id);
+        if (subscriber != null)
+        {
+            return Ok(subscriber);
+        }
+
+        return NotFound();
+    }
+
+    #endregion
+
+    #region UPDATE
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateOne(int id, string email)
+    {
+        var subscriber = await _context.Subscribers.FirstOrDefaultAsync(x => x.Id == id);
+        if (subscriber != null)
+        {
+            subscriber.Email = email;
+            _context.Subscribers.Update(subscriber);
+            await _context.SaveChangesAsync();
+
+            return Ok(subscriber);
+        }
+        return NotFound();
+    }
+
+    #endregion
+
+    #region DELETE
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteOne(int id)
+    {
+        var subscriber = await _context.Subscribers.FirstOrDefaultAsync(x => x.Id == id);
+        if (subscriber != null)
+        {
+            _context.Subscribers.Remove(subscriber);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+        return NotFound();
+    }
+
+    #endregion
 }

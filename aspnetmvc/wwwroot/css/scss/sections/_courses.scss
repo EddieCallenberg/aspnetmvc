@@ -93,6 +93,11 @@
                 box-shadow: 0px 2px 6.4px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 12px -1px rgba(19, 16, 34, 0.06);
                 max-width: 416px;
 
+
+                hover {
+                    border: 1px solid black;
+                }
+
                 .course-img {
                     border-radius: 8px 8px 0px 0px;
                     max-width: 100%;
