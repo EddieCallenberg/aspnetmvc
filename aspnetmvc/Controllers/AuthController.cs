@@ -13,7 +13,6 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
 {
     private readonly UserManager<UserEntity> _userManager = userManager;
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
-    private readonly AdressService _adressService;
 
     [Route("/signup")]
     [HttpGet]
