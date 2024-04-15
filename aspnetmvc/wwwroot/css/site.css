@@ -1288,3 +1288,36 @@ footer .container .social-media {
   border-radius: 2rem;
   color: #0B0F19;
 }
+
+.newsletter-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 50px;
+}
+.newsletter-wrapper .newsletter-title {
+  display: flex;
+  width: 50%;
+}
+.newsletter-wrapper .newsletter-title h2 {
+  padding-right: 1.5rem;
+}
+.newsletter-wrapper .checkboxes {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+.newsletter-wrapper .checkboxes .checkboxes-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+}
+.newsletter-wrapper .checkboxes .checkboxes-right .induvidual-checkbox {
+  display: flex;
+  gap: 7px;
+}
+.newsletter-wrapper .checkboxes .checkboxes-right .induvidual-checkbox input {
+  margin-bottom: 15px;
+}

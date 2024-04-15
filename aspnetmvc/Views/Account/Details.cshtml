@@ -7,9 +7,9 @@
     <section id="account-details">
         <aside>
             <div class="profile-info">
-                <img src="~/images/profile-picture-image.svg" alt="s profile picture" />
-                <h5>@Model.BasicInfoForm?.FirstName @Model.BasicInfoForm?.LastName</h5>
-                <p>@Model.BasicInfoForm?.Email</p>
+                <img src="~/images/profile-picture-image.svg" alt="@Model.ProfileInfo.FirstName 's profile picture" />
+                <h5>@Model.ProfileInfo.FirstName @Model.ProfileInfo.LastName</h5>
+                <p>@Model.ProfileInfo.Email</p>
             </div>
             <nav>
                 <a class="btn-theme-s" asp-controller="Account" asp-action="Details">Account Details</a>

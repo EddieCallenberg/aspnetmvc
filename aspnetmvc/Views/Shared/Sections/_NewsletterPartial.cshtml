@@ -1,0 +1,48 @@
+﻿@model NewsletterViewModel
+
+<section>
+    <div class="container newsletter-wrapper">
+        <div class="newsletter-title">
+            <h2>Don't Want to Miss Anything?</h2>
+            <img src="/images/arrows.svg" alt="aesthetic arrow" />
+        </div>
+        <div class="checkboxes">
+            <h5>Sign up for<br/> Newsletters</h5>
+            <div class="checkboxes-right">
+                <div class="induvidual-checkbox">
+                    <input type="checkbox" />
+                    <p>Daily Newsletter</p>
+                </div>
+
+                <div class="induvidual-checkbox">
+                    <input type="checkbox" />
+                    <p>Advertising Updates</p>
+                </div>
+
+                <div class="induvidual-checkbox">
+                    <input type="checkbox" />
+                    <p>Week in Review</p>
+                </div>
+
+                <div class="induvidual-checkbox">
+                    <input type="checkbox" />
+                    <p>Event Updates</p>
+                </div>
+
+                <div class="induvidual-checkbox">
+                    <input type="checkbox" />
+                    <p>Startups Weekly</p>
+                </div>
+
+                <div class="induvidual-checkbox">
+                    <input type="checkbox" />
+                    <p>Podcasts</p>
+                </div>
+            </div>
+        </div>
+        <form asp-action="Subscribe" asp-controller="Home" method="post">
+            <input type="email" asp-for="Email" />
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+</section>

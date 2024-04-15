@@ -1,17 +1,45 @@
-﻿using Infrastructure.Entities;
+﻿using aspnetmvc.ViewModels;
+using Infrastructure.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Text;
 namespace aspnetmvc.Controllers;
 
 public class HomeController : Controller
 {
     public async Task<IActionResult> Index()
     {
-        using var http = new HttpClient();
-        var response = await http.GetAsync("https://localhost:7233/api/courses");
-        var json = await response.Content.ReadAsStringAsync();
-        var data = JsonConvert.DeserializeObject<IEnumerable<CourseEntity>>(json);
+        return View();
+    }
 
-        return View(data);
+    [Route("/Subscribe")]
+    public async Task<IActionResult> Subscribe()
+    {
+        ViewData["Subscribed"] = false;
+        return View();
+    }
+
+    [Route("/Subscribe")]
+    [HttpPost]
+    public async Task<IActionResult> Subscribe(NewsletterViewModel viewModel)
+    {
+        if (ModelState.IsValid)
+        {
+            using var http = new HttpClient();
+
+
+            var json = JsonConvert.SerializeObject(viewModel);
+            using var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await http.PostAsync($"https://localhost:7233/api/subscribers?email={viewModel.Email}", content);
+            if (response.IsSuccessStatusCode)
+            {
+                ViewData["Subscribed"] = true;
+            }
+        }
+
+
+        return RedirectToAction("Index");
+
     }
 }
