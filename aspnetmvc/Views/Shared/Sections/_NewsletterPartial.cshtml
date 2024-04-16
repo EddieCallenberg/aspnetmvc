@@ -40,9 +40,10 @@
                 </div>
             </div>
         </div>
-        <form asp-action="Subscribe" asp-controller="Home" method="post">
+        <form asp-action="Subscribe" asp-controller="Home" method="post" class="newsletter-form">
             <input type="email" asp-for="Email" />
-            <button type="submit">Subscribe</button>
+            <button type="submit" class="btn-theme newsletter-submit">Subscribe</button>
         </form>
+        <p>* Yes, I agree to the <a href="">terms</a> and <a href="">privacy policy</a></p>
     </div>
 </section>

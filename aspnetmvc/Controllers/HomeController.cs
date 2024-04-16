@@ -7,13 +7,13 @@ namespace aspnetmvc.Controllers;
 
 public class HomeController : Controller
 {
-    public async Task<IActionResult> Index()
+    public IActionResult Index()
     {
         return View();
     }
 
     [Route("/Subscribe")]
-    public async Task<IActionResult> Subscribe()
+    public IActionResult Subscribe()
     {
         ViewData["Subscribed"] = false;
         return View();
